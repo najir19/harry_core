@@ -128,11 +128,15 @@ class Harry_Core_Plugin
 		require_once(__DIR__ . '/widgets/hello-world.php');
 		require_once(__DIR__ . '/widgets/inline-editing.php');
 		require_once(__DIR__ . '/widgets/hero.php');
+		require_once(__DIR__ . '/widgets/about-me.php');
+		require_once(__DIR__ . '/widgets/progress.php');
 
 		// Register Widgets
 		$widgets_manager->register(new Widgets\Hello_World());
 		$widgets_manager->register(new Widgets\Inline_Editing());
 		$widgets_manager->register(new Widgets\Harry_Hero_Section());
+		$widgets_manager->register(new Widgets\Harry_about_me_Section());
+		$widgets_manager->register(new Widgets\Harry_Progress_Section());
 	}
 
 	/**

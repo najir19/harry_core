@@ -114,9 +114,9 @@ class Harry_Hero_Section extends Widget_Base
 			]
 		);
 
-		// hero sub title
+		//  sub title
 		$this->add_control(
-			'harry_hero_sub_title',
+			'harry_sub_title',
 			[
 				'label' => esc_html__('Sub Title', 'harry_core'),
 				'type' => \Elementor\Controls_Manager::TEXT,
@@ -126,9 +126,9 @@ class Harry_Hero_Section extends Widget_Base
 
 			]
 		);
-		// hero main tittle
+		//  main tittle
 		$this->add_control(
-			'harry_hero_main_title',
+			'harry_main_title',
 			[
 				'label' => esc_html__('Main Title', 'harry_core'),
 				'type' => \Elementor\Controls_Manager::TEXT,
@@ -140,9 +140,9 @@ class Harry_Hero_Section extends Widget_Base
 
 			]
 		);
-		// hero descritpion 
+		//  descritpion 
 		$this->add_control(
-			'harry_hero_description',
+			'harry_description',
 			[
 				'label' => esc_html__('Description', 'harry_core'),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
@@ -164,9 +164,9 @@ class Harry_Hero_Section extends Widget_Base
 			]
 		);
 
-		// hero button 
+		//  button 
 		$this->add_control(
-			'harry_hero_button',
+			'harry_button',
 			[
 				'label' => esc_html__('Button Text', 'harry_core'),
 				'type' => \Elementor\Controls_Manager::TEXT,
@@ -176,9 +176,9 @@ class Harry_Hero_Section extends Widget_Base
 
 			]
 		);
-		// hero button url 
+		//  button url 
 		$this->add_control(
-			'harry_hero_button_url',
+			'harry_button_url',
 			[
 				'label' => esc_html__('Button URL', 'harry_core'),
 				'type' => \Elementor\Controls_Manager::URL,
@@ -194,7 +194,7 @@ class Harry_Hero_Section extends Widget_Base
 		);
 		$this->end_controls_section();
 
-		// Hero image section
+		//  image section
 		$this->start_controls_section(
 			'harry_hero_image_section',
 			[
@@ -202,7 +202,7 @@ class Harry_Hero_Section extends Widget_Base
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
-		// hero image
+		//  image
 		$this->add_control(
 			'harry_hero_image',
 			[
@@ -218,9 +218,9 @@ class Harry_Hero_Section extends Widget_Base
 
 
 
-		// harry_hero_social_icons section 
+		// harry_social_icons section 
 		$this->start_controls_section(
-			'harry_hero_social_icons',
+			'harry_social_icons',
 			[
 				'label' => esc_html__('Social Icons', 'harry-core'),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
@@ -267,7 +267,7 @@ class Harry_Hero_Section extends Widget_Base
 
 
 		$this->add_control(
-			'harry_hero_social_list',
+			'harry_social_icons_list',
 			[
 				'label' => esc_html__('Social Icons List', 'harry-core'),
 				'type' => \Elementor\Controls_Manager::REPEATER,
@@ -289,8 +289,8 @@ class Harry_Hero_Section extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-		if (! empty($settings['harry_hero_button_url']['url'])) {
-			$this->add_link_attributes('harry_hero_button_url', $settings['harry_hero_button_url']);
+		if (! empty($settings['harry_button_url']['url'])) {
+			$this->add_link_attributes('harry_button_url', $settings['harry_button_url']);
 		}
 
 ?>
@@ -301,19 +301,19 @@ class Harry_Hero_Section extends Widget_Base
 					<div class="row align-items-end">
 						<div class="col-xl-7 col-lg-6 col-md-7">
 							<div class="slider__content-9">
-								<?php if (!empty($settings['harry_hero_sub_title'])): ?>
-									<span class="slider__title-pre-9"><?php echo esc_html($settings['harry_hero_sub_title']); ?></span>
+								<?php if (!empty($settings['harry_sub_title'])): ?>
+									<span class="slider__title-pre-9"><?php echo esc_html($settings['harry_sub_title']); ?></span>
 								<?php endif ?>
-								<?php if (!empty($settings['harry_hero_main_title'])): ?>
-									<h3 class="slider__title-9"><?php echo esc_html($settings['harry_hero_main_title']); ?></h3>
+								<?php if (!empty($settings['harry_main_title'])): ?>
+									<h3 class="slider__title-9"><?php echo esc_html($settings['harry_main_title']); ?></h3>
 								<?php endif ?>
-								<?php if (!empty($settings['harry_hero_description'])): ?>
-									<p><?php echo esc_html($settings['harry_hero_description']); ?></p>
+								<?php if (!empty($settings['harry_description'])): ?>
+									<p><?php echo esc_html($settings['harry_description']); ?></p>
 								<?php endif ?>
-								<?php if (!empty($settings['harry_hero_button'])): ?>
+								<?php if (!empty($settings['harry_button'])): ?>
 									<div class="slider__btn-9 mb-85">
-										<a <?php $this->print_render_attribute_string('harry_hero_button_url'); ?> class="tp-btn-5 tp-link-btn-3">
-											<?php echo esc_html($settings['harry_hero_button']); ?>
+										<a <?php $this->print_render_attribute_string('harry_button_url'); ?> class="tp-btn-5 tp-link-btn-3">
+											<?php echo esc_html($settings['harry_button']); ?>
 											<span>
 												<i class="fa-regular fa-arrow-right"></i>
 											</span>
@@ -324,7 +324,7 @@ class Harry_Hero_Section extends Widget_Base
 								<div class="slider__social-9 d-flex flex-wrap align-items-center">
 									<span>Check out my:</span>
 									<ul>
-										<?php foreach ($settings['harry_hero_social_list'] as $item) : ?>
+										<?php foreach ($settings['harry_social_icons_list'] as $item) : ?>
 											<li>
 												<a href="<?php echo esc_url($item['harry_social_icon_url']); ?>">
 													<?php \Elementor\Icons_Manager::render_icon($item['harry_social_icon'], ['aria-hidden' => 'true']); ?>
