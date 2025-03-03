@@ -173,6 +173,18 @@ class Harry_Progress_Section extends Widget_Base
 				],
 			]
 		);
+		// switch for active item 
+		$repeater->add_control(
+			'active_switch',
+			[
+				'label' => esc_html__('Active Item', 'harry-core'),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Show', 'harry-core'),
+				'label_off' => esc_html__('Hide', 'harry-core'),
+				'return_value' => 'yes',
+				'default' => '',
+			]
+		);
 		$this->add_control(
 			'harry_progress_repeater_list',
 			[
@@ -206,23 +218,31 @@ class Harry_Progress_Section extends Widget_Base
 				<div class="row">
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="features__wrapper-9 mr-30">
-							<div class="features__content-9 features-item-content" rel="features-img-1">
-								<?php foreach ($settings['harry_progress_repeater_list'] as $single_progress_item) : ?>
+							<?php foreach ($settings['harry_progress_repeater_list'] as $key => $single_progress_item) :
+								// $active = ($key == 1) ? 'active' : '';
+								$active = $single_progress_item['active_switch'] ? 'active' : '';
+								$index = $key + 1;
+							?>
+								<div class="features__content-9 features-item-content <?php echo esc_attr($active); ?>" rel="features-img-<?php echo esc_attr($index); ?>">
 									<?php if (!empty($single_progress_item['harry_sub_title'])): ?>
 										<span><?php echo esc_html($single_progress_item['harry_sub_title']); ?></span>
 									<?php endif ?>
 									<?php if (!empty($single_progress_item['harry_main_title'])): ?>
 										<h3 class="features__title-9"><?php echo esc_html($single_progress_item['harry_main_title']); ?></h3>
 									<?php endif ?>
-								<?php endforeach ?>
-							</div>
+								</div>
+							<?php endforeach ?>
 						</div>
 					</div>
 					<div class="col-xl-8 col-lg-8 col-md-6 d-none d-md-block">
 						<div class="features__thumb-wrapper-9 pl-20">
 							<div id="features-item-thumb" class="features-img-2">
-								<div class="features__thumb-9 transition-3 features-img-1">
-									<?php foreach ($settings['harry_progress_repeater_list'] as $single_progress_item) : ?>
+								<?php foreach ($settings['harry_progress_repeater_list'] as $key => $single_progress_item) :
+									// $active = ($key == 1) ? 'active' : '';
+									$active = $single_progress_item['active_switch'] ? 'active' : '';
+									$index = $key + 1;
+								?>
+									<div class="features__thumb-9 transition-3 features-img-<?php echo esc_attr($index); ?> <?php echo esc_attr($active); ?>">
 										<img src="<?php echo esc_url($single_progress_item['harry_progress_main_image']['url']) ?>" alt="">
 										<div class="features__thumb-9-content">
 											<p><?php echo esc_html($single_progress_item['harry_testimonial_description']) ?></p>
@@ -230,8 +250,8 @@ class Harry_Progress_Section extends Widget_Base
 												<img src="<?php echo esc_url($single_progress_item['harry_progress_testimonial_image']['url']) ?>" alt="">
 											</div>
 										</div>
-									<?php endforeach ?>
-								</div>
+									</div>
+								<?php endforeach ?>
 							</div>
 						</div>
 					</div>

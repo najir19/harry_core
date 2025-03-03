@@ -107,7 +107,7 @@ class Harry_Hero_Section extends Widget_Base
 	{
 		// Title and content section
 		$this->start_controls_section(
-			'harry_title_section',
+			'harry_hero_title_section',
 			[
 				'label' => esc_html__('Title and content', 'harry_core'),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
