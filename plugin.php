@@ -137,6 +137,7 @@ class Harry_Core_Plugin
 		require_once(__DIR__ . '/widgets/skill-list.php');
 		require_once(__DIR__ . '/widgets/experience.php');
 		require_once(__DIR__ . '/widgets/award.php');
+		require_once(__DIR__ . '/widgets/testimonial.php');
 
 		// Register Widgets
 		$widgets_manager->register(new Widgets\Hello_World());
@@ -151,6 +152,7 @@ class Harry_Core_Plugin
 		$widgets_manager->register(new Widgets\Harry_Skill_List());
 		$widgets_manager->register(new Widgets\Harry_Experience());
 		$widgets_manager->register(new Widgets\Harry_Award());
+		$widgets_manager->register(new Widgets\Harry_Testimonial());
 	}
 
 	/**

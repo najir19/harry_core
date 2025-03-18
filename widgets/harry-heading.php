@@ -138,6 +138,19 @@ class Harry_Heading extends Widget_Base
 
 			]
 		);
+
+		// switch for active item 
+		$this->add_control(
+			'is_center',
+			[
+				'label' => esc_html__('Is Center ?', 'harry-core'),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Show', 'harry-core'),
+				'label_off' => esc_html__('Hide', 'harry-core'),
+				'return_value' => 'no',
+				'default' => '',
+			]
+		);
 		$this->end_controls_section();
 	}
 
@@ -153,10 +166,11 @@ class Harry_Heading extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
+		$is_center = $settings['is_center'] ? 'is-center' : '';
 
 ?>
 
-		<div class="section__title-wrapper-9 mb-65">
+		<div class="section__title-wrapper-9 mb-65 <?php echo esc_attr($is_center); ?>">
 			<?php if (!empty($settings['harry_sub_title'])): ?>
 				<span class="section__title-pre-9"><?php echo esc_html($settings['harry_sub_title']); ?></span>
 			<?php endif; ?>
